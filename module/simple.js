@@ -9,7 +9,7 @@ import { SimpleItem } from "./item.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
-import { createWorldbuildingMacro } from "./macro.js";
+import { createFightMacro } from "./macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./token.js";
 
 /* -------------------------------------------- */
@@ -31,9 +31,9 @@ Hooks.once("init", async function() {
     decimals: 2
   };
 
-  game.worldbuilding = {
+  game.fight2e = {
     SimpleActor,
-    createWorldbuildingMacro
+    createFightMacro,
   };
 
   // Define custom Document classes
@@ -44,33 +44,33 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("worldbuilding", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("fight2e", SimpleActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("worldbuilding", SimpleItemSheet, { makeDefault: true });
+  Items.registerSheet("fight2e", SimpleItemSheet, { makeDefault: true });
 
   // Register system settings
-  game.settings.register("worldbuilding", "macroShorthand", {
+  game.settings.register("fight2e", "macroShorthand", {
     name: "SETTINGS.SimpleMacroShorthandN",
     hint: "SETTINGS.SimpleMacroShorthandL",
     scope: "world",
     type: Boolean,
     default: true,
-    config: true
+    config: true,
   });
 
   // Register initiative setting.
-  game.settings.register("worldbuilding", "initFormula", {
+  game.settings.register("fight2e", "initFormula", {
     name: "SETTINGS.SimpleInitFormulaN",
     hint: "SETTINGS.SimpleInitFormulaL",
     scope: "world",
     type: String,
     default: "1d20",
     config: true,
-    onChange: formula => _simpleUpdateInit(formula, true)
+    onChange: (formula) => _simpleUpdateInit(formula, true),
   });
 
   // Retrieve and assign the initiative formula setting.
-  const initFormula = game.settings.get("worldbuilding", "initFormula");
+  const initFormula = game.settings.get("fight2e", "initFormula");
   _simpleUpdateInit(initFormula);
 
   /**
@@ -101,7 +101,7 @@ Hooks.once("init", async function() {
 /**
  * Macrobar hook.
  */
-Hooks.on("hotbarDrop", (bar, data, slot) => createWorldbuildingMacro(data, slot));
+Hooks.on("hotbarDrop", (bar, data, slot) => createFightMacro(data, slot));
 
 /**
  * Adds the actor template context menu.
@@ -118,7 +118,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("worldbuilding", "isTemplate", true);
+      actor.setFlag("fight2e", "isTemplate", true);
     }
   });
 
@@ -132,7 +132,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("worldbuilding", "isTemplate", false);
+      actor.setFlag("fight2e", "isTemplate", false);
     }
   });
 });
@@ -152,7 +152,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const item = game.items.get(li.data("documentId"));
-      item.setFlag("worldbuilding", "isTemplate", true);
+      item.setFlag("fight2e", "isTemplate", true);
     }
   });
 
@@ -166,7 +166,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const item = game.items.get(li.data("documentId"));
-      item.setFlag("worldbuilding", "isTemplate", false);
+      item.setFlag("fight2e", "isTemplate", false);
     }
   });
 });

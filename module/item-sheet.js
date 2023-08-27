@@ -10,11 +10,17 @@ export class SimpleItemSheet extends ItemSheet {
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["worldbuilding", "sheet", "item"],
-      template: "systems/worldbuilding/templates/item-sheet.html",
+      classes: ["fight2e", "sheet", "item"],
+      template: "systems/fight2e/templates/item-sheet.html",
       width: 520,
       height: 480,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "description",
+        },
+      ],
       scrollY: [".attributes"],
     });
   }
