@@ -30,5 +30,6 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "manifest": "https://raw.githubusercontent.com/K0ccc/fight2e/master/system.json"
+  "manifest": "https://raw.githubusercontent.com/K0ccc/fight2e/master/system.json",
+  "download": "https://github.com/K0ccc/fight2e/archive/refs/tags/release-001.zip"
 }
