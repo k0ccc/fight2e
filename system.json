@@ -7,8 +7,9 @@
   "license": "LICENSE.txt",
   "authors": [
     {
-      "name": "Atropos",
-      "url": "https://foundryvtt.com"
+      "name": "K0ccc",
+      "url": "https://github.com/k0ccc",
+      "discord":"k0ccc"
     }
   ],
   "esmodules": ["module/simple.js"],
@@ -19,11 +20,6 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
-    },
-    {
-      "lang": "pl",
-      "name": "Polski",
-      "path": "lang/pl.json"
     }
   ],
   "compatibility": {
@@ -34,6 +30,5 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "manifest": "https://raw.githubusercontent.com/K0ccc/fight2e/master/system.json",
-  "download": "https://github.com/K0ccc/fight2e/archive/refs/tags/release-001.zip"
+  "manifest": "https://raw.githubusercontent.com/K0ccc/fight2e/master/system.json"
 }
