@@ -1,0 +1,39 @@
+{
+  "id": "fight2e",
+  "version": "0.0.1",
+  "title": "Fight! 2e",
+  "url": "https://github.com/K0ccc/fight2e/",
+  "description": "The greatest role-playing game for telling the stories of fighting game characters returns with an updated edition. Featuring expanded and clarified rules for character generation, Special Move construction, and running combat, Fight! 2nd Edition gives you the tools to generate unique Fighters and run adventures featuring exciting tactical combat designed to play and feel like the techniques used in actual fighting games.",
+  "license": "LICENSE.txt",
+  "authors": [
+    {
+      "name": "Atropos",
+      "url": "https://foundryvtt.com"
+    }
+  ],
+  "esmodules": ["module/simple.js"],
+  "styles": ["styles/simple.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "lang/pl.json"
+    }
+  ],
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11"
+  },
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "manifest": "https://raw.githubusercontent.com/K0ccc/fight2e/master/system.json",
+  "download": "https://github.com/K0ccc/fight2e/archive/refs/tags/release-001.zip"
+}
