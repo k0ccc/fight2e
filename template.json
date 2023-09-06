@@ -1,8 +1,9 @@
 {
 "Actor": {
-  "types": ["character"],
+  "types": ["character","npc"],
   "htmlFields": ["biography"],
   "character": {
+    "templates":["fighter"],
     "biography": "",
     "health": {
       "value": 10,
@@ -16,6 +17,9 @@
     },
     "attributes": {},
     "groups": {}
+  },
+  "npc":{
+    "templates":["actor-sheet"]
   }
 },
 "Item": {

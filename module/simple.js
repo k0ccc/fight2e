@@ -21,7 +21,7 @@ import { SimpleToken, SimpleTokenDocument } from "./token.js";
  */
 Hooks.once("init", async function() {
   console.log(`Initializing Simple Worldbuilding System`);
-
+  // CONFIG.debug.hooks = true;
   /**
    * Set an initiative formula for the system. This will be updated later.
    * @type {String}
@@ -126,14 +126,14 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
   options.push({
     name: game.i18n.localize("SIMPLE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
-    condition: li => {
+    condition: (li) => {
       const actor = game.actors.get(li.data("documentId"));
       return actor.isTemplate;
     },
-    callback: li => {
+    callback: (li) => {
       const actor = game.actors.get(li.data("documentId"));
       actor.setFlag("fight2e", "isTemplate", false);
-    }
+    },
   });
 });
 

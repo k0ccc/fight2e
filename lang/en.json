@@ -23,7 +23,7 @@
   "SIMPLE.ResourceMax": "Max",
 
   "SIMPLE.DefineTemplate": "Define as Template",
-  "SIMPLE.UnsetTemplate": "Unset Template",
+  "SIMPLE.UnsetTemplate": "Unset",
   "SIMPLE.NoTemplate": "No Template",
 
   "SIMPLE.AttributeKey": "Attribute Key",

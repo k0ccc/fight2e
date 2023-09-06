@@ -11,12 +11,18 @@ export class SimpleActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["fight2e", "sheet", "actor"],
-      template: "systems/fight2e/templates/actor-sheet.html",
+      template: "systems/fight2e/templates/fighter.html",
       width: 600,
       height: 600,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "description",
+        },
+      ],
       scrollY: [".biography", ".items", ".attributes"],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
 

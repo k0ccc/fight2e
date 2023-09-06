@@ -37,7 +37,6 @@ export class SimpleActor extends Actor {
 
   /** @inheritdoc */
   getRollData() {
-
     // Copy the actor's system data
     const data = this.toObject(false).system;
     const shorthand = game.settings.get("fight2e", "macroShorthand");

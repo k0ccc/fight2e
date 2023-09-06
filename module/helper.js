@@ -2,7 +2,6 @@
 export class EntitySheetHelper {
 
   static getAttributeData(data) {
-
     // Determine attribute type.
     for ( let attr of Object.values(data.system.attributes) ) {
       if ( attr.dtype ) {
@@ -511,7 +510,6 @@ export class EntitySheetHelper {
    * @see ClientDocumentMixin.createDialog
    */
   static async createDialog(data={}, options={}) {
-
     // Collect data
     const documentName = this.metadata.name;
     const folders = game.folders.filter(f => (f.type === documentName) && f.displayed);
@@ -520,27 +518,27 @@ export class EntitySheetHelper {
 
     // Identify the template Actor types
     const collection = game.collections.get(this.documentName);
-    const templates = collection.filter((a) =>
-      a.getFlag("fight2e", "isTemplate")
+    const types = game.documentTypes[documentName].filter(
+      (t) => t !== CONST.BASE_DOCUMENT_TYPE
     );
-    const defaultType = this.TYPES.filter(t => t !== CONST.BASE_DOCUMENT_TYPE)[0] ?? CONST.BASE_DOCUMENT_TYPE;
-    const types = {
-      [defaultType]: game.i18n.localize("SIMPLE.NoTemplate")
-    }
-    for ( let a of templates ) {
-      types[a.id] = a.name;
-    }
 
     // Render the document creation form
-    const template = "templates/sidebar/document-create.html";
+    const template = "/systems/fight2e/templates/sidebar/fighter-create.html";
+    // const template = "templates/sidebar/document-create.html";
+
     const html = await renderTemplate(template, {
-      name: data.name || game.i18n.format("DOCUMENT.New", {type: label}),
+      name:
+        data.name || game.i18n.format("SIMPLE.UnsetTemplate", { type: label }),
       folder: data.folder,
       folders: folders,
       hasFolders: folders.length > 1,
-      type: data.type || templates[0]?.id || "",
-      types: types,
-      hasTypes: true
+      type: data.type || CONFIG[documentName]?.defaultType || types[0],
+      types: types.reduce((obj, t) => {
+        const label = CONFIG[documentName]?.typeLabels?.[t] ?? t;
+        obj[t] = game.i18n.has(label) ? game.i18n.localize(label) : t;
+        return obj;
+      }, {}),
+      hasTypes: types.length > 1,
     });
 
     // Render the confirmation dialog window
@@ -554,17 +552,17 @@ export class EntitySheetHelper {
         const form = html[0].querySelector("form");
         const fd = new FormDataExtended(form);
         let createData = fd.object;
-
-        // Merge with template data
         const template = collection.get(form.type.value);
         if ( template ) {
           createData = foundry.utils.mergeObject(template.toObject(), createData);
           createData.type = template.type;
           delete createData.flags.fight2e.isTemplate;
         }
-
+        
         // Merge provided override data
         createData = foundry.utils.mergeObject(createData, data, { inplace: false });
+        if (!createData.name?.trim()) createData.name = this.defaultName();
+        if (types.length === 1) data.type = types[0];
         return this.create(createData, {renderSheet: true});
       },
       rejectClose: false,

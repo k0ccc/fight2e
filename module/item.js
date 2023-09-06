@@ -16,10 +16,10 @@ export class SimpleItem extends Item {
 
   /* -------------------------------------------- */
 
-  /** @override */
-  static async createDialog(data={}, options={}) {
-    return EntitySheetHelper.createDialog.call(this, data, options);
-  }
+  // /** @override */
+  // static async createDialog(data={}, options={}) {
+  //   return EntitySheetHelper.createDialog.call(this, data, options);
+  // }
 
   /* -------------------------------------------- */
 
