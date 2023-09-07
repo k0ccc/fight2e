@@ -7,9 +7,14 @@ const less = require('gulp-less');
 
 const SIMPLE_LESS = ["styles/*.less"];
 function compileLESS() {
-  return gulp.src("styles/simple.less")
-    .pipe(less())
-    .pipe(gulp.dest("./styles/"))
+  return gulp
+    .src(SIMPLE_LESS)
+    .pipe(
+      less({
+        outputStyle: "expanded",
+      })
+    )
+    .pipe(gulp.dest("./styles/"));
 }
 const css = gulp.series(compileLESS);
 
