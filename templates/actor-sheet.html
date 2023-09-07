@@ -77,24 +77,24 @@
                         {{/each}}
                     </div>
                     <div class="item-controls">
-                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
-                        <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                        <a class="item-control" title="{{ localize "BASE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
+                        <a class="item-control" title="{{ localize "BASE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
                     </div>
                 </li>
                 {{/each}}
             </ol>
             <p>
-                <a class="item-control" title="{{ localize "SIMPLE.ItemCreate" }}" data-action="create"><i class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
+                <a class="item-control" title="{{ localize "BASE.ItemCreate" }}" data-action="create"><i class="fas fa-plus"></i> {{ localize "BASE.ItemCreate" }}</a>
             </p>
         </div>
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             <header class="attributes-header flexrow">
-                <span class="attribute-key">{{localize "SIMPLE.AttributeKey"}}</span>
-                <span class="attribute-value">{{localize "SIMPLE.AttributeValue"}}</span>
-                <span class="attribute-label">{{localize "SIMPLE.AttributeLabel"}}</span>
-                <span class="attribute-dtype">{{localize "SIMPLE.AttributeDtype"}}</span>
+                <span class="attribute-key">{{localize "BASE.AttributeKey"}}</span>
+                <span class="attribute-value">{{localize "BASE.AttributeValue"}}</span>
+                <span class="attribute-label">{{localize "BASE.AttributeLabel"}}</span>
+                <span class="attribute-dtype">{{localize "BASE.AttributeDtype"}}</span>
                 <a class="attribute-control" data-action="create" data-group="{{group}}"><i class="fas fa-plus"></i></a>
             </header>
 

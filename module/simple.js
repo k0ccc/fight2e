@@ -81,7 +81,7 @@ Hooks.once("init", async function() {
   function _simpleUpdateInit(formula, notify = false) {
     const isValid = Roll.validate(formula);
     if ( !isValid ) {
-      if ( notify ) ui.notifications.error(`${game.i18n.localize("SIMPLE.NotifyInitFormulaInvalid")}: ${formula}`);
+      if ( notify ) ui.notifications.error(`${game.i18n.localize("BASE.NotifyInitFormulaInvalid")}: ${formula}`);
       return;
     }
     CONFIG.Combat.initiative.formula = formula;
@@ -110,7 +110,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
 
   // Define an actor as a template.
   options.push({
-    name: game.i18n.localize("SIMPLE.DefineTemplate"),
+    name: game.i18n.localize("BASE.DefineTemplate"),
     icon: '<i class="fas fa-stamp"></i>',
     condition: li => {
       const actor = game.actors.get(li.data("documentId"));
@@ -124,7 +124,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
 
   // Undefine an actor as a template.
   options.push({
-    name: game.i18n.localize("SIMPLE.UnsetTemplate"),
+    name: game.i18n.localize("BASE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
     condition: (li) => {
       const actor = game.actors.get(li.data("documentId"));
@@ -144,7 +144,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
 
   // Define an item as a template.
   options.push({
-    name: game.i18n.localize("SIMPLE.DefineTemplate"),
+    name: game.i18n.localize("BASE.DefineTemplate"),
     icon: '<i class="fas fa-stamp"></i>',
     condition: li => {
       const item = game.items.get(li.data("documentId"));
@@ -158,7 +158,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
 
   // Undefine an item as a template.
   options.push({
-    name: game.i18n.localize("SIMPLE.UnsetTemplate"),
+    name: game.i18n.localize("BASE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
     condition: li => {
       const item = game.items.get(li.data("documentId"));

@@ -106,7 +106,7 @@ export class EntitySheetHelper {
         let groups = document.querySelectorAll('.group-key');
         for ( let i = 0; i < groups.length; i++ ) {
           if (groups[i].value === val) {
-            ui.notifications.error(game.i18n.localize("SIMPLE.NotifyAttrDuplicate") + ` (${val})`);
+            ui.notifications.error(game.i18n.localize("BASE.NotifyAttrDuplicate") + ` (${val})`);
             el.value = oldVal;
             attrError = true;
             break;
@@ -232,25 +232,25 @@ export class EntitySheetHelper {
 
     // Check for duplicate group keys.
     if ( groups.includes(groupName) ) {
-      ui.notifications.error(game.i18n.localize("SIMPLE.NotifyGroupDuplicate") + ` (${groupName})`);
+      ui.notifications.error(game.i18n.localize("BASE.NotifyGroupDuplicate") + ` (${groupName})`);
       return false;
     }
 
     // Check for group keys that match attribute keys.
     if ( attributes.includes(groupName) ) {
-      ui.notifications.error(game.i18n.localize("SIMPLE.NotifyGroupAttrDuplicate") + ` (${groupName})`);
+      ui.notifications.error(game.i18n.localize("BASE.NotifyGroupAttrDuplicate") + ` (${groupName})`);
       return false;
     }
 
     // Check for reserved group names.
     if ( ["attr", "attributes"].includes(groupName) ) {
-      ui.notifications.error(game.i18n.format("SIMPLE.NotifyGroupReserved", {key: groupName}));
+      ui.notifications.error(game.i18n.format("BASE.NotifyGroupReserved", {key: groupName}));
       return false;
     }
 
     // Check for whitespace or periods.
     if ( groupName.match(/[\s|\.]/i) ) {
-      ui.notifications.error(game.i18n.localize("SIMPLE.NotifyGroupAlphanumeric"));
+      ui.notifications.error(game.i18n.localize("BASE.NotifyGroupAlphanumeric"));
       return false;
     }
     return true;
@@ -386,8 +386,8 @@ export class EntitySheetHelper {
     let group = $(groupHeader).find('.group-key');
     // Create a dialog to confirm group deletion.
     new Dialog({
-      title: game.i18n.localize("SIMPLE.DeleteGroup"),
-      content: `${game.i18n.localize("SIMPLE.DeleteGroupContent")} <strong>${group.val()}</strong>`,
+      title: game.i18n.localize("BASE.DeleteGroup"),
+      content: `${game.i18n.localize("BASE.DeleteGroupContent")} <strong>${group.val()}</strong>`,
       buttons: {
         confirm: {
           icon: '<i class="fas fa-trash"></i>',
@@ -528,7 +528,7 @@ export class EntitySheetHelper {
 
     const html = await renderTemplate(template, {
       name:
-        data.name || game.i18n.format("SIMPLE.UnsetTemplate", { type: label }),
+        data.name || game.i18n.format("BASE.UnsetTemplate", { type: label }),
       folder: data.folder,
       folders: folders,
       hasFolders: folders.length > 1,
@@ -596,7 +596,7 @@ export class EntitySheetHelper {
    */
   static cleanKey(key) {
     const clean = key.replace(/[\s.]/g, "");
-    if ( clean !== key ) ui.notifications.error("SIMPLE.NotifyAttrInvalid", { localize: true });
+    if ( clean !== key ) ui.notifications.error("BASE.NotifyAttrInvalid", { localize: true });
     return clean;
   }
 }

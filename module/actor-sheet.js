@@ -89,7 +89,7 @@ export class SimpleActorSheet extends ActorSheet {
     switch ( button.dataset.action ) {
       case "create":
         const cls = getDocumentClass("Item");
-        return cls.create({name: game.i18n.localize("SIMPLE.ItemNew"), type: "item"}, {parent: this.actor});
+        return cls.create({name: game.i18n.localize("BASE.ItemNew"), type: "item"}, {parent: this.actor});
       case "edit":
         return item.sheet.render(true);
       case "delete":
