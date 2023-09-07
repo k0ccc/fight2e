@@ -87,9 +87,7 @@ Hooks.once("init", async function() {
     CONFIG.Combat.initiative.formula = formula;
   }
 
-  /**
-   * Slugify a string.
-   */
+
   Handlebars.registerHelper('slugify', function(value) {
     return value.slugify({strict: true});
   });

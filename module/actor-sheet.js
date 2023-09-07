@@ -39,6 +39,7 @@ export class SimpleActorSheet extends ActorSheet {
       secrets: this.document.isOwner,
       async: true
     });
+    console.log("context", context);
     return context;
   }
 

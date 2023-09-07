@@ -13,7 +13,7 @@
     }
   ],
   "esmodules": ["module/simple.js"],
-  "styles": ["styles/simple.css"],
+  "styles": ["styles/fight2e.css"],
   "packs": [],
   "languages": [
     {
