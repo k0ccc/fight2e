@@ -5,6 +5,8 @@
 # Node Modules
 node_modules/
 package-lock.json
-
+# foundry
 worldbuilding.lock
 system_copy.json
+# later?
+/assets/*.svg
