@@ -1,11 +1,12 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
+const concat = require('gulp-concat');
 
 /* ----------------------------------------- */
 /*  Compile LESS
 /* ----------------------------------------- */
 
-const SIMPLE_LESS = ["styles/*.less"];
+const SIMPLE_LESS = ["styles/*.less", "styles/utils/*.less"];
 function compileLESS() {
   return gulp
     .src(SIMPLE_LESS)
@@ -14,6 +15,7 @@ function compileLESS() {
         outputStyle: "expanded",
       })
     )
+    .pipe(concat("fight2e.css"))
     .pipe(gulp.dest("./styles/"));
 }
 const css = gulp.series(compileLESS);

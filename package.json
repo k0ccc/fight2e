@@ -14,8 +14,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp": "^5.0.0"
+  }
 }

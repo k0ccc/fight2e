@@ -1,6 +1,35 @@
 <form class="flexcol fighter-sheet" autocomplete="off">
   <div>
-    <button class="draw">geeee</button>
+    <header class="sheet-header">
+      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
+      <div class="header-fields">
+        <h2 class="charname">
+          <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
+        </h2>
+        <div class="flex space-b" style="gap: 20px;">
+          <div class="no-gap">
+            <div class="flex space-b">
+              <p id="HP">{{localize "SHEET.HP"}}</p>
+              <input type="text" id="hp">
+            </div>
+            <hr class="baseline">
+            <div class="flex space-b">
+              <p id="SP">{{localize "SHEET.SP"}}</p>
+              <input type="text" id="sp">
+            </div>
+          </div>
+          <div class="powerLVL">
+            <p>Power LVL</p>
+            <input type="number">  
+          </div>
+        </div>
+      </div>
+    </header>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="skills">Skills</a>
+      <a class="item" data-tab="bio">BIO</a>
+      <a class="item" data-tab="misc">Misc/Items</a>
+    </nav>
   </div>
-
 </form>

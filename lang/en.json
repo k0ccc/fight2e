@@ -35,5 +35,8 @@
   "BASE.DeleteGroupContent": "Do you wish to delete this group? This will delete the following group and all attributes included in it: ",
 
   "BASE.Create": "Create",
-  "BASE.New": "New"
+  "BASE.New": "New",
+
+  "SHEET.HP":"HP",
+  "SHEET.SP":"SP"
 }
