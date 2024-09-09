@@ -38,5 +38,6 @@
   "BASE.New": "New",
 
   "SHEET.HP":"HP",
-  "SHEET.SP":"SP"
+  "SHEET.SE":"SE",
+  "SHEET.FS": "FS"
 }

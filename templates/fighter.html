@@ -1,26 +1,35 @@
 <form class="flexcol fighter-sheet" autocomplete="off">
   <div>
     <header class="sheet-header">
-      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
       <div class="header-fields">
-        <h2 class="charname">
-          <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
-        </h2>
-        <div class="flex space-b" style="gap: 20px;">
+        <div class="avatar-power">
+          <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
+        </div>
+        <div class="flex-1">
+          <div class="flex width-100 space-b">
+            <h2 class="charname">
+              <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
+            </h2>
+            <div class="flex">
+              <p>P.L.</p>
+              <input type="number" style="width: 20%;">
+            </div>
+          </div>
           <div class="no-gap">
             <div class="flex space-b">
               <p id="HP">{{localize "SHEET.HP"}}</p>
-              <input type="text" id="hp">
+              <input type="number" id="hp">
             </div>
             <hr class="baseline">
             <div class="flex space-b">
-              <p id="SP">{{localize "SHEET.SP"}}</p>
-              <input type="text" id="sp">
+              <p id="SE">{{localize "SHEET.SE"}}</p>
+              <input type="number" id="se">
+              <input type="number" id="fs">
+              <p id="FS">{{localize "SHEET.FS"}}</p>
             </div>
           </div>
-          <div class="powerLVL">
-            <p>Power LVL</p>
-            <input type="number">  
+          <div class="roll-button">
+            <button>ROLL</button>
           </div>
         </div>
       </div>
