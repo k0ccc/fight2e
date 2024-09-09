@@ -18,7 +18,7 @@ export class SimpleActorSheet extends ActorSheet {
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "description",
+          initial: "basics",
         },
       ],
       scrollY: [".biography", ".items", ".attributes"],
@@ -69,8 +69,14 @@ export class SimpleActorSheet extends ActorSheet {
         ev.dataTransfer.setData('text/plain', JSON.stringify(dragData));
       }, false);
     });
+    // DEL
+    html.on("click", ".rollable", async (data) => {
+      let r = new Roll("2d20kh", {prof: 2, strMod: 4});
+      await r.evaluate();
+      console.log(r.total);
+      
+    });
   }
-
   /* -------------------------------------------- */
 
   /**
@@ -121,6 +127,7 @@ export class SimpleActorSheet extends ActorSheet {
   /** @inheritdoc */
   _getSubmitData(updateData) {
     let formData = super._getSubmitData(updateData);
+    console.log(formData);
     formData = EntitySheetHelper.updateAttributes(formData, this.object);
     formData = EntitySheetHelper.updateGroups(formData, this.object);
     return formData;

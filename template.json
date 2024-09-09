@@ -5,15 +5,17 @@
   "character": {
     "templates":["fighter"],
     "biography": "",
-    "health": {
-      "value": 10,
-      "min": 0,
-      "max": 10
+    "lifeBar": {
+      "value": 10
     },
-    "power": {
-      "value": 5,
-      "min": 0,
-      "max": 5
+    "fightingSpirit": {
+      "value": 0
+    },
+    "superEnergy": {
+      "value": 0
+    },
+    "powerLVL":{
+      "value": 0
     },
     "attributes": {},
     "groups": {}
